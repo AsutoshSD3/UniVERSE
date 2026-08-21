@@ -1,6 +1,6 @@
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { facultyClasses, facultyIssues, facultyTasks, todayEvents } from '../../data/mockFacultyData';
+import { facultyClasses, facultyIssues, facultyTasks, todayEvents, todaysFacultyClasses } from '../../data/mockFacultyData';
 import StatCard from '../../components/common/StatCard';
 import Calendar from '../../components/common/Calendar';
 import { 
@@ -12,7 +12,7 @@ export default function FacultyDashboard() {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  const pendingIssues = facultyIssues.filter(i => i.status === 'Open' || i.status === 'In Progress');
+  const pendingIssues = facultyIssues.filter(i => i.status === 'open' || i.status === 'in-progress');
   const pendingTasks = facultyTasks.filter(t => t.status === 'Pending');
 
   return (
@@ -62,7 +62,7 @@ export default function FacultyDashboard() {
       <div className="grid-4" style={{ marginBottom: 'var(--space-xl)' }}>
         <StatCard
           title="My Classes Today"
-          value={facultyClasses.filter(c => c.time.includes('AM') || c.time.includes('PM')).length}
+          value={todaysFacultyClasses.length}
           subtitle="Scheduled lectures"
           icon={Users}
           color="#3b82f6"

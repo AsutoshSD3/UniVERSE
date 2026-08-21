@@ -39,3 +39,10 @@ export const visitorPassStatuses = {
   EXPIRED: 'expired',
   REJECTED: 'rejected',
 };
+
+export const qrPasses = [
+  { id: 'GP-2026-0451', visitorName: 'Guest User', host: 'Dr. Priya Sharma', purpose: 'Meeting', status: 'Active', validUntil: '2026-08-21 6:00 PM', date: '2026-08-21' },
+  { id: 'GP-2026-0389', visitorName: 'Guest User', host: 'Prof. Anil Gupta', purpose: 'Event', status: 'Expired', validUntil: '2026-08-18 5:00 PM', date: '2026-08-18' },
+];
+
+export const activeEvents = guestEvents.filter(e => e.registrationOpen);

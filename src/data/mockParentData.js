@@ -48,3 +48,10 @@ export const paymentReminders = [
   { id: 2, title: 'Exam Fee Due', amount: 5000, dueDate: '2026-09-15', status: 'upcoming' },
   { id: 3, title: 'Transport Fee Due', amount: 12000, dueDate: '2026-09-20', status: 'upcoming' },
 ];
+
+// Aliases used by parent pages
+export const parentWard = wardInfo;
+export const busLocation = busTracking;
+export { feeDetails };
+
+

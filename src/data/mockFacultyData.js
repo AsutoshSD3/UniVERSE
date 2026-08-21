@@ -87,3 +87,31 @@ export const payslips = [
 
 const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 export const todaysFacultyClasses = facultyTimetable[dayNames[today.getDay()]] || [];
+
+export const facultyIssues = studentIssues;
+
+export const facultyTasks = [
+  { id: 'T001', title: 'Grade Midterm Papers', status: 'Pending', deadline: '2026-08-25' },
+  { id: 'T002', title: 'Submit Course Plan', status: 'Completed', deadline: '2026-08-10' }
+];
+
+export const todayEvents = [
+  { id: 'E001', title: 'Department Meeting', time: '4:00 PM', location: 'Meeting Room 1' }
+];
+
+// Aliases used by faculty pages
+export const facultyResearch = researchPublications;
+export const facultyLeave = leaveRecords.map(r => ({
+  ...r,
+  fromDate: r.from,
+  toDate: r.to,
+}));
+export const facultyPayslips = payslips.map(p => ({
+  month: p.month,
+  basic: p.basic,
+  allowances: p.hra + p.da + p.special,
+  deductions: p.totalDeductions,
+  net: p.netSalary,
+}));
+
+

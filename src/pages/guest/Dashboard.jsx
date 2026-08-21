@@ -1,4 +1,4 @@
-import { useNavigate } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { qrPasses, activeEvents } from '../../data/mockGuestData';
 import StatCard from '../../components/common/StatCard';
@@ -144,8 +144,8 @@ export default function GuestDashboard() {
               </div>
               <div style={{ padding: '16px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
-                  <div className="badge badge-blue mb-2">{activeEvents[0].type}</div>
-                  <h4 style={{ fontSize: 'var(--font-lg)', fontWeight: 800, marginBottom: '4px' }}>{activeEvents[0].title}</h4>
+                  <div className="badge badge-blue mb-2">{activeEvents[0].category}</div>
+                  <h4 style={{ fontSize: 'var(--font-lg)', fontWeight: 800, marginBottom: '4px' }}>{activeEvents[0].name}</h4>
                   <p className="text-sm text-muted mb-4">{activeEvents[0].description}</p>
                 </div>
                 <button className="btn btn-primary w-full" onClick={() => navigate('/guest/events')}>

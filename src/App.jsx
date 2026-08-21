@@ -36,6 +36,14 @@ import ParentHostel from './pages/parent/Hostel';
 import ParentMessages from './pages/parent/Messages';
 import ParentBusTracking from './pages/parent/BusTracking';
 
+// Guest Pages
+import GuestDashboard from './pages/guest/Dashboard';
+import GuestRegister from './pages/guest/Register';
+import GuestQrPass from './pages/guest/QrPass';
+import GuestEvents from './pages/guest/Events';
+import GuestInquiry from './pages/guest/Inquiry';
+import GuestCampusMap from './pages/guest/CampusMap';
+
 // Protected Route Wrapper
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const { user, isAuthenticated } = useAuth();
@@ -110,15 +118,19 @@ function AppRoutes() {
         <Route path="bus-tracking" element={<ParentBusTracking />} />
       </Route>
 
-      {/* Guest Portal Routes - Placeholders */}
+      {/* Guest Portal Routes */}
       <Route path="/guest" element={
         <ProtectedRoute allowedRoles={['guest']}>
           <DashboardLayout />
         </ProtectedRoute>
       }>
         <Route index element={<Navigate to="dashboard" replace />} />
-        <Route path="dashboard" element={<div>Guest Dashboard (Coming Soon)</div>} />
-        {/* We will build these next */}
+        <Route path="dashboard" element={<GuestDashboard />} />
+        <Route path="register" element={<GuestRegister />} />
+        <Route path="qr-pass" element={<GuestQrPass />} />
+        <Route path="events" element={<GuestEvents />} />
+        <Route path="inquiry" element={<GuestInquiry />} />
+        <Route path="campus-map" element={<GuestCampusMap />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/login" replace />} />
